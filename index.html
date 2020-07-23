@@ -12,12 +12,10 @@
 	
 </head>
 <body>
+	<h1 class="text-center">Todo List</h1>
 	<div id="app" class="container">
-		<button @click="isSafe=!isSafe">Change</button> {{ isSafe }}
-		<br><br>
-		<a href="https://www.google.com"
-			target="_blank"
-			@click="demo">Google</a>
+		<input type="text" v-model="title">
+		<h4>{{ title }} </h4>
 	</div>
 
 
