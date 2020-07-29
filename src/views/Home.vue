@@ -5,13 +5,13 @@
 			<div class="row">
 				<div class="col-12 col-md-6">
 					<br/><br/>
-					<input type="text" v-model="inp"/>
+					<input type="text" v-model="inp" placeholder="Enter Your Task" @keyup.enter="addToList"/>
 					<br/><br/>
-					<b-button pill variant="secondary" @click="addToList" >Add to List</b-button>
+					<b-button pill variant="secondary" @click="addToList" >Add to List <span class="fas fa-plus"/></b-button>
 				</div>
 				<div class="col-12 col-md-6">
-					<ul>
-						<li v-for="el in list" :key="el"> {{el}} </li>
+					<ul class="">
+						<li v-for="el in list" :key="el"> {{el}} <b-button pill class="float-right" @click="deleteval(el)"><span class="far fa-hand-scissors"/></b-button> </li>
 					</ul>
 				</div>
 			</div>
@@ -35,6 +35,9 @@ export default {
 		addToList(){
 			this.list.push(this.inp);
 			this.inp=""
+		},
+		deleteval(el){
+			this.list.splice(this.list.indexOf(el),1)
 		}
 		
 	}
