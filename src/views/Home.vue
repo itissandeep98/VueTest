@@ -1,18 +1,36 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div class="home container">
+		<h1 class="text-center"> Todo or !Todo</h1>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-6">
+				<input type="text" v-model="inp"/>
+				</div>
+				<div class="col-6">
+					<b-button pill variant="secondary" @click="log">Add to List</b-button>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+	components: {
+	},
+	data(){
+		return {
+			inp:""
+		}
+	},
+	methods:{
+		
+	}
 }
 </script>
+
+<style scoped>
+
+</style>
