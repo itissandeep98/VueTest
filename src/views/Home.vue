@@ -11,7 +11,7 @@
 				</div>
 				<div class="col-12 col-md-6">
 					<ul class="">
-						<li v-for="el in list" :key="el"> {{el}} <b-button pill class="float-right" @click="deleteval(el)"><span class="far fa-hand-scissors"/></b-button> </li>
+						<li v-for="(el,ind) in list" :key="ind"><b-button pill @click="deleteval(ind)"><span class="far fa-hand-scissors"/></b-button>  {{el}} </li>
 					</ul>
 				</div>
 			</div>
@@ -36,8 +36,8 @@ export default {
 			this.list.push(this.inp);
 			this.inp=""
 		},
-		deleteval(el){
-			this.list.splice(this.list.indexOf(el),1)
+		deleteval(i){
+			this.list.splice(i,1)
 		}
 		
 	}
