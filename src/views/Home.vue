@@ -1,7 +1,7 @@
 <template>
-	<div class="home container">
+	<div class="home">
 		<h1 class="text-center"> Todo or !Todo</h1>
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
 				<div class="col-6">
 				<input type="text" v-model="inp"/>
@@ -32,5 +32,10 @@ export default {
 </script>
 
 <style scoped>
-
+h1{
+	background-color: #3fada8;
+	color: white;
+    padding: 10px;
+    font-family: "Times New Roman", Times, serif;
+}
 </style>
