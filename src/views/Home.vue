@@ -1,9 +1,9 @@
 <template>
 	<div class="home">
-		<h1 class="text-center"> Todo or !Todo</h1>
+		<h1 class="text-center"><span class="fas fa-list-ul"/> Todo or !Todo</h1>
 		<div class="container">
 			<div class="row">
-				<div class="col-12 col-md-6">
+				<div class="col-12 col-md-6 text-center">
 					<br/><br/>
 					<input type="text" v-model="inp" placeholder="Enter Your Task" @keyup.enter="addToList"/>
 					<br/><br/>
