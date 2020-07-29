@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8abbbc8f4d0722612f08",
+    "revision": "ab80aad2c8ee8babc022",
     "url": "/VueTest/css/app.13ba594e.css"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/VueTest/img/logo.82b9c7a5.png"
   },
   {
-    "revision": "85a108be707f57420b2c6adf50a8f139",
+    "revision": "8170e7cf82fee6e008b2aaf0ca26e9a7",
     "url": "/VueTest/index.html"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/VueTest/js/about.a241b303.js"
   },
   {
-    "revision": "8abbbc8f4d0722612f08",
-    "url": "/VueTest/js/app.a6d47428.js"
+    "revision": "ab80aad2c8ee8babc022",
+    "url": "/VueTest/js/app.dcccd493.js"
   },
   {
     "revision": "342bcee166fa9bd5aa04",
