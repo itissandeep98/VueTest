@@ -3,11 +3,16 @@
 		<h1 class="text-center"> Todo or !Todo</h1>
 		<div class="container">
 			<div class="row">
-				<div class="col-6">
-				<input type="text" v-model="inp"/>
+				<div class="col-12 col-md-6">
+					<br/><br/>
+					<input type="text" v-model="inp"/>
+					<br/><br/>
+					<b-button pill variant="secondary" @click="addToList" >Add to List</b-button>
 				</div>
-				<div class="col-6">
-					<b-button pill variant="secondary" @click="log">Add to List</b-button>
+				<div class="col-12 col-md-6">
+					<ul>
+						<li v-for="el in list" :key="el"> {{el}} </li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -22,10 +27,15 @@ export default {
 	},
 	data(){
 		return {
-			inp:""
+			inp:"",
+			list:[]
 		}
 	},
 	methods:{
+		addToList(){
+			this.list.push(this.inp);
+			this.inp=""
+		}
 		
 	}
 }
