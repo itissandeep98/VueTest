@@ -16,7 +16,7 @@
 				<div class="col-12 col-md-6">
 					<b-tabs content-class="mt-3">
 						<b-tab title="Active" >
-							<ul class="">
+							<b-ul>
 								<li v-for="(el,ind) in activeList" :key="ind">
 									<b-button pill variant="info" @click="markCompleted(ind)" v-b-popover.hover.left="'Mark As Completed'">
 										<span class="far fa-check-circle"/>
@@ -24,17 +24,17 @@
 									<p  v-show="isedit!=ind" @click="isedit=ind;temp=el">{{el.text}}  {{el.date}}</p>
 									<input type="text" v-model="temp" v-show="ind===isedit" @keyup.enter="update(ind)" />
 								</li>
-							</ul>
+							</b-ul>
 						</b-tab>
 						<b-tab title="Completed"> 
-							<ul class="">
+							<b-ul >
 								<li v-for="(el,ind) in completedList" :key="ind">
 									<b-button pill variant="danger" @click="deleteval(ind)" v-b-popover.hover.left="'Delete Permanently'">
 										<span class="far fa-times-circle"/>
 									</b-button>
 									<p>{{el.text}}  {{el.date}}</p>
 								</li>
-							</ul>
+							</b-ul>
 						</b-tab>
 					</b-tabs>					
 				</div>
