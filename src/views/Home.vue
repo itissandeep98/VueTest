@@ -7,11 +7,19 @@
 					<br/><br/>
 					<input type="text" v-model="inp" placeholder="Enter Your Task" @keyup.enter="addToList"/>
 					<br/><br/>
-					<b-button pill variant="secondary" @click="addToList" >Add to List <span class="fas fa-plus"/></b-button>
+					<b-button pill variant="secondary" @click="addToList" >
+						Add to List <span class="fas fa-plus"/>
+					</b-button>
 				</div>
 				<div class="col-12 col-md-6">
 					<ul class="">
-						<li v-for="(el,ind) in list" :key="ind"><b-button pill @click="deleteval(ind)"><span class="far fa-hand-scissors"/></b-button>  {{el}} </li>
+						<li v-for="(el,ind) in list" :key="ind">
+							<b-button pill variant="danger" @click="deleteval(ind)">
+								<span class="far fa-hand-scissors"/>
+							</b-button>
+							<p  v-show="isedit!=ind" @click="isedit=ind;temp=el">{{el}}</p>
+							<input type="text" v-model="temp" v-show="ind===isedit" @keyup.enter="update(ind)" />
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -28,7 +36,9 @@ export default {
 	data(){
 		return {
 			inp:"",
-			list:[]
+			list:[],
+			isedit:-1,
+			temp:""
 		}
 	},
 	methods:{
@@ -38,6 +48,11 @@ export default {
 		},
 		deleteval(i){
 			this.list.splice(i,1)
+		},
+		update(ind){
+			this.list[ind]=this.temp
+			this.isedit=-1
+			this.temp=''
 		}
 		
 	}
@@ -50,5 +65,15 @@ h1{
 	color: white;
     padding: 10px;
     font-family: "Times New Roman", Times, serif;
+}
+p{
+	display: inline;
+	margin:10px
+}
+li{
+	margin: 10px;
+}
+li input{
+	margin: 10px;
 }
 </style>
