@@ -12,15 +12,29 @@
 					</b-button>
 				</div>
 				<div class="col-12 col-md-6">
-					<ul class="">
-						<li v-for="(el,ind) in list" :key="ind">
-							<b-button pill variant="danger" @click="deleteval(ind)">
-								<span class="far fa-hand-scissors"/>
-							</b-button>
-							<p  v-show="isedit!=ind" @click="isedit=ind;temp=el">{{el}}</p>
-							<input type="text" v-model="temp" v-show="ind===isedit" @keyup.enter="update(ind)" />
-						</li>
-					</ul>
+					<b-tabs content-class="mt-3">
+						<b-tab title="Active" >
+							<ul class="">
+								<li v-for="(el,ind) in activeList" :key="ind">
+									<b-button pill variant="danger" @click="markCompleted(ind)" v-b-popover.hover.left="'Mark As Completed'">
+										<span class="far fa-hand-scissors"/>
+									</b-button>
+									<p  v-show="isedit!=ind" @click="isedit=ind;temp=el">{{el}}</p>
+									<input type="text" v-model="temp" v-show="ind===isedit" @keyup.enter="update(ind)" />
+								</li>
+							</ul>
+						</b-tab>
+						<b-tab title="Completed"> 
+							<ul class="">
+								<li v-for="(el,ind) in completedList" :key="ind">
+									<b-button pill variant="danger" @click="deleteval(ind)" v-b-popover.hover.left="'Delete Permanently'">
+										<span class="far fa-hand-scissors"/>
+									</b-button>
+									<p>{{el}}</p>
+								</li>
+							</ul>
+						</b-tab>
+					</b-tabs>					
 				</div>
 			</div>
 		</div>
@@ -36,23 +50,28 @@ export default {
 	data(){
 		return {
 			inp:"",
-			list:[],
+			activeList:[],
+			completedList:[],
 			isedit:-1,
 			temp:""
 		}
 	},
 	methods:{
 		addToList(){
-			this.list.push(this.inp);
+			this.activeList.push(this.inp);
 			this.inp=""
 		},
-		deleteval(i){
-			this.list.splice(i,1)
+		markCompleted(i){
+			this.completedList.push(this.activeList[i])
+			this.activeList.splice(i,1)
 		},
 		update(ind){
-			this.list[ind]=this.temp
+			this.activeList[ind]=this.temp
 			this.isedit=-1
 			this.temp=''
+		},
+		deleteval(i){
+			this.completedList.splice(i,1)
 		}
 		
 	}
